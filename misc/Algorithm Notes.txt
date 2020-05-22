@@ -1,0 +1,144 @@
+----9/10/18----
+
+An algorithm is a sequence of unambiguous instructions for solving a problem, ie, for obtaining a required output for any legitimate input in a finite
+amount of time.
+Important Points:
+	The nonambiguity requirement for each step of an algorithm cannot be compromised.
+	The range of inputs for which an algorithm works has to be specified carefully.
+	The same algorithm can be represented in several different ways.
+	There may exist several algorithms for solving the same problem.
+
+
+Sequential Search:
+
+int seq_search(int values[], const int length, int key){
+	for(int i = 0; i<length; i++){
+		if(values[i] == key){
+			return i;
+		}
+	}
+	return -1;
+}
+
+Assume:
+	The probability of a successful search is equal to p(0 <= p <= 1)
+	The probability of the first match occurring in the i-th position is the same for every i
+	With a successful search, the probability of the first match occurring in the i-th position is p/n for every i
+	Number of comparisons: i
+	With an unsuccessful search, the number of comparisons will be n, with the probability of such a search being 1-p
+
+Carg(n) = [1*p/n + 2*p/n . . . . + i*p/n + . . + n*p/n] + n(1-p)
+	= p/n[1 + 2 . . . + i + . . . + n] + n(1-p)
+	look at picture on phone lol
+
+----9/12/18----
+
+Amortized efficiency
+	Does not apply to a single run of the algorithm but
+	Rather to a sequence of operations performed on the same data structure
+	Some situations might be expensive, but the total time to perform n operations is always significantly better than the worst case efficiency multiplied by 10.
+	Discovered by Robert Tarjan
+
+O(g(n)) = {f(n): (there exists symbol) positive constants c and n0 such that:
+		0 <= f(n) <= c*g(n) (for all symbol)n >= n0}
+
+OMEGA(g(n)) = {f(n) : (there exists symbol) positive constants c and n0 such that:
+		0 <= c*g(n) <= f(n) (for all symbol)n >= n0}
+
+THETA(g(n)) = {f(n) : (there exists symbol) positive constants c1, c2, and n0 such that:
+		0 <= c1*g(n) <= f(n) <= c2*g(n) (for all symbol)n >= n0}
+
+----9/19/18----
+Recurrence relations are used to produce a closed form expression for the number of times the principal operation occurs.
+	T(n) = a T(n/b) + f(n)
+	
+	a is the number of times the recursive call is made in one execution of the function.
+	b is the constant by which the input decreases (or divides).
+	f(n) is the amount of work performed in the function excluding recursive calls.
+
+----9/21/18----
+Solve recurrence relations with backward substitution (5 step process)
+	x(n) = x(n - 1) + (n - 1),  x(0) = 0
+		replace n with n - 1
+	x(n - 1) = x(n - 2) + (n - 1)
+	1. x(n) = x(n - 2) + (n - 2) + (n - 1)
+		replace n with n - 2
+	x(n - 2) = x(n - 3) + (n - 3)
+	2. x(n) = x(n - 3) + (n - 3) + (n - 2) + (n - 1)
+	3. GENERAL FORM: x(n) = x(n - i) + (n - i) + (n - i + 1) + (n - i + 2) + . . . + (n - 1)
+	4. Use initial condition
+		n - i = 0
+		i = n
+	5. Produce closed form expression
+		sub n for i:  x(n) = x(n - n) + (n - n) + (n - n + 1) + (n - n + 2) + . . . + (n - 1)
+		= 0 + 0 + 1 + 2 + (n - 1)
+		= n(n - 1)/2
+
+EXAMPLE: Binary Search - x(n) = x(n/2) + 1, x(1) = 1
+		replace n with n/2
+	x(n/2) = x(n/4) + 1
+	1. x(n) = x(n/4) + 1 + 1 = x(n/4) + 2
+	x(n/4) = x(n/8) + 1
+	2. x(n) = x(n/8) + 1 + 2 = x(n/8) + 3
+	3. x(n) = x(n/2^k) + k
+	4. n/2^k = 1
+	   2^k = n
+	   k = lg n
+	5. x(n) = x(n/2^lg n) + lg n	2^lg n reduces to n
+		= 1 + lg n  
+EXAMPLE: Mergesort - x(n) = 2x(n/2) + n, x(1) = 1
+	x(n/2) = 2x(n/4) + n/2\
+	1. x(n) 2[2x(n/4) + n/2] + n
+		= 4x(n/4) + 2n
+	2. x(n) = 4[2x(n/8) + n/4] + 2n
+		= 8x(n/8) + 3n
+	3. x(n) =  (2^k)(x)(n/2^k) + kn
+	4. n/2^k = 1
+	   2^k = n
+	   k = lg n
+	5. x(n) = (2^lg n)(x)(n/2^lg n) + (lg n)n
+		= n + (lg n)n
+		= n + nlg n
+
+----9/28/18----
+
+Brute Force - testing all possibilities and selecting those that meet certain criteria
+
+Neighbor {
+	x: float
+	y: float
+	name: string
+}
+
+pseudo code
+
+algorithm nearest_neighbors(Neighbor neighbors[], const int size) {
+	for(int i = 0; i < size - 1; i++){
+		for(int j = i + 1; j < size; j++){
+			distance = sqrt((neighbors[i].x - neighbors[j].x)^2 + (neighbors[i].y - neighbors[j].y)^2)
+			if (distance < min_distance){ 
+				min_distance = distance;
+				update nearest with neighbors at i and j
+			}
+		}
+	}
+	return [neighbors[nearest[0]], neighbors[nearest[1]]
+}
+
+A set of points (finite or infinite) in the plane is called convex  if for any two points p and q in the set, the entire line segment
+with endpoints p and q belongs to the set.
+The convex hull of a set S of points is the smallest convex set containing S.
+
+----10/1/18----
+
+A graph is a set of verticies and edges.
+Graphs can be directed or undirected, weighted or unweighted
+
+----10/17/18----
+
+Hardest parts of waterjug will be checking if visited and backtracking thru steps so you can print out directions
+bfs visit in the graphs thing is super similar to what we have to do in waterjug
+
+----10/26/18----
+
+count # of inversions (an inversion is when a larger number precedes a smaller number in the array.)

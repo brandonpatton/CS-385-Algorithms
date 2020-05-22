@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Sorting Algorithms Demo</title>
+  <link rel="stylesheet" type="text/css" href="/styles.css" />
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
+  <script type="text/javascript" src="/js/popup.js"></script>
+  <script type="text/javascript" src="/js/linkclasses.js"></script>
+  <script type="text/javascript" src="/js/external.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="Author" content="Brian S. Borowski" />
+  <meta name="description" content="Sorting Demo is a Java applet that graphically demonstates how common sorting algorithms work. The following algorithms have been implemented: bubble sort, selection sort, insertion sort, shellsort, quicksort, heapsort, mergesort, odd-even transposition sort, and shearsort." />
+</head>
+
+<body onload="setLinkClasses('linkSoftware:active,linkSortingDemo:active'); externalLinks()">
+<div id="wrap">
+<!--#include virtual="/header.html"-->
+<!--#include virtual="/navbar.html"-->
+  <div id="content">
+    <div id="workarea">
+      <h4>Sorting Demo</h4>
+      <div style="float: right; text-align: center; width: 219px"><img src="Merging.gif" width="219" height="235" alt="Mergesort in progress" title="Mergesort in progress" /><br /><i>Mergesort in progress.</i></div>
+      <p id="topparagraph">Sorting Demo is a powerful tool for demonstrating how sorting algorithms work. It was designed to alleviate some of the difficulty instructors often have in conveying these concepts to students due to lack of blackboard space and having to constantly erase. This program started out as a quicksort demonstration applet, and after proposing the idea to Seton Hall's math and computer science department, I was given permission to expand the idea to encompass many of the sorts commonly taught in a data structures/algorithms class. There are currently 9 algorithms featured, all of which allow you to either type in your own array or make the computer generate a random array of a milestone size. Although graphics limit the input array to a length of 25 elements, there is the option to run the algorithm without graphics in order to get an understanding of its running time in comparison with the other sorts.</p><br />
+      <p id="centerparagraph">
+        <object type="application/x-java-applet" width="550" height="205">
+          <param name="archive" value="Sorting.jar" />
+          <param name="code" value="SortStarter.class" />
+          <param name="background" value="#FFFFFF" />
+        </object>
+      </p>
+      <div class="clearit"></div>
+      <hr />
+      <div>Naturally, I consulted a number of sources for information on the implementation of these algorithms. They are as follows:<br /><br />
+       Cormen, Thomas H., Charles E. Leiserson, and Ronald L. Rivest. <i>Introduction to Algorithms</i>.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cambridge: The MIT Press, 1990.<br />
+       Kitchen, Andrew. <i>OETransSortAlgorithm.java</i>.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.cs.rit.edu/~atk/Java/Sorting/OETransSortAlgorithm.java" onclick="launchCenter('http://www.cs.rit.edu/~atk/Java/Sorting/OETransSortAlgorithm.java', 'OETransSort', 455, 630); return false">http://www.cs.rit.edu/~atk/Java/Sorting/OETransSortAlgorithm.java</a>: 1995.<br />
+       Kitchen, Andrew. <i>ShearSortAlgorithm.java</i>.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.cs.rit.edu/~atk/Java/Sorting/ShearSortAlgorithm.java" onclick="launchCenter('http://www.cs.rit.edu/~atk/Java/Sorting/ShearSortAlgorithm.java', 'ShearSort', 455, 765); return false">http://www.cs.rit.edu/~atk/Java/Sorting/ShearSortAlgorithm.java</a>: 1995.<br />
+       Sedgewick, Robert. <i>Algorithms</i>. Reading, MA: Addison-Wesley Publishing Company, 1983.<br />
+       Snoeyink, Jack. <i>ExtraStorageMergeSortAlgorithm.java</i>.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.cs.ubc.ca/spider/harrison/Java/ExtraStorageMergeSortAlgorithm.java" onclick="launchCenter('http://www.cs.ubc.ca/spider/harrison/Java/ExtraStorageMergeSortAlgorithm.java', 'MergeSort', 455, 665); return false">http://www.cs.ubc.ca/spider/harrison/Java/ExtraStorageMergeSortAlgorithm.java</a>: 1995.<br />
+       Wirth, Niklaus. <i>Algorithms + Data Structures = Programs</i>. Englewood Cliffs: Prentice Hall, Inc., 1976.
+      </div>
+      <br />
+      <h4>Revision History</h4>
+      <ul class="category">
+        <li>v2.04 - April 7, 2015
+          <ul class="openspace">
+            <li>Fixed a bug that caused shearsort to work incorrectly on certain inputs. (Thanks, Harry Robinson!)</li>
+          </ul>
+        </li>
+        <li>v2.03 - October 20, 2014
+          <ul class="openspace">
+            <li>Changed relational operator in mergesort to make the algorithm a "stable" sort.</li>
+          </ul>
+        </li>
+        <li>v2.02 - November 22, 2008
+          <ul class="openspace">
+            <li>Changed background color of GUI.</li>
+            <li>Changed "OK" button to "Start" button.</li>
+            <li>Centered popup windows.</li>
+          </ul>
+        </li>
+        <li>v2.01 - July 5, 2006
+          <ul class="openspace">
+            <li>Fixed issue with threads where demos would skip steps under Linux.</li>
+            <li>Increased size of help window to prevent unnecessary wrapping.</li>
+          </ul>
+        </li>
+        <li>v2.00 - March 1, 2002
+          <ul class="openspace">
+            <li>Redesigned the GUI for the embedded applet and converted popup frames to GridBagLayout to ensure equal spacing of panels.</li>
+            <li>Removed usage of deprecated <i>Thread</i> methods.</li>
+            <li>Removed usage of <i>sun.audio</i> package.</li>
+            <li>Corrected code causing dialog boxes to appear minimized under Linux.</li>
+            <li>Added a parameter to set the background color of the applet.</li>
+            <li>Added "15" to the list of available lengths for special-case arrays.</li>
+            <li>Redesigned shearsort demo to fit in 800x600 resolution.</li>
+          </ul>
+        </li>
+        <li>v1.15 - November 8, 2000
+          <ul class="openspace">
+            <li>Added shearsort demo.</li>
+            <li>Corrected inconsistent code highlighting in heapsort demo.</li>
+          </ul>
+        </li>
+        <li>v1.14 - October 12, 2000
+          <ul class="openspace">
+            <li>Added shearsort demo.</li>
+            <li>Corrected inconsistent code highlighting in heapsort demo.</li>
+          </ul>
+        </li>
+        <li>v1.03 - September 14, 2000
+          <ul class="openspace">
+            <li>Fixed the double buffering error that sometimes caused the program to pause.</li>
+          </ul>
+        </li>
+        <li>v1.02 - August 10, 2000
+          <ul class="openspace">
+            <li>"2k+1" sequence now correctly reads "2^k-1" for k = x, x-1,..., 1 in shellsort help.</li>
+            <li>In shellsort demo, sorted strides are displayed in a different color than sorted subarrays.</li>
+          </ul>
+        </li>
+        <li>v1.01 - August 7, 2000
+          <ul class="openspace">
+            <li>Included computer-generated "sorted" and "reverse sorted" arrays.</li>
+            <li>Corrected O-E transposition sort algorithm.</li>
+          </ul>
+        </li>
+        <li>v1.00 - July 10, 2000
+          <ul class="openspace">
+            <li>Initial release.</li>
+          </ul>
+        </li>
+      </ul>
+      <br />
+      <h4>Legal Limitations</h4>
+      <ul class="openspace">
+        <li>It is illegal to modify and distribute the class files and/or to package the applet with other programs on CD-ROM, web sites, or any other media without my permission.</li>
+        <li>It is permissible to link to this site and to distribute the applet as it appears here for educational purposes only, as long as no profit is generated.</li>
+      </ul>
+      <br />
+      <div id="sourcenav" style="width: 125px">
+        <p>Source Code</p>
+        <ul>
+          <li><a href="SortingDemo.zip">SortingDemo.zip</a></li>
+        </ul>
+      </div>
+      <br />
+    </div>
+<!--#include virtual="/soft_nav.html"-->
+    <div class="clearit"></div>
+    <div id="footer">
+      <p id="footer_p">Oracle and Java are registered trademarks of Oracle and/or its affiliates.<br />Last modified on April 7, 2015.<br />&copy; 1999-2002, 2006, 2008, 2014, 2015 Brian S. Borowski. All Rights Reserved.</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
